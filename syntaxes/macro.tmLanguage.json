@@ -25,17 +25,21 @@
     "actions": {
       "patterns": [
         {
-          "match": "\\{([a-zA-Z0-9_]+|\\n|\\t)\\s+(down|up)\\}",
+          "match": "(\\{)([a-zA-Z0-9_]+|\\n|\\t)\\s+(down|up)(\\})",
           "captures": {
-            "1": { "name": "variable.parameter.macro" },
-            "2": { "name": "keyword.control.macro" }
+            "1": { "name": "keyword.other.macro" },
+            "2": { "name": "variable.parameter.macro" },
+            "3": { "name": "keyword.control.macro" },
+            "4": { "name": "keyword.other.macro" }
           }
         },
         {
-          "match": "\\{(delay)\\s+([0-9]+ms)\\}",
+          "match": "(\\{)(delay)\\s+([0-9]+ms)(\\})",
           "captures": {
             "1": { "name": "keyword.other.macro" },
-            "2": { "name": "constant.numeric.macro" }
+            "2": { "name": "constant.language.boolean.macro" },
+            "3": { "name": "constant.numeric.macro" },
+            "4": { "name": "keyword.other.macro" }
           }
         }
       ]
