@@ -25,7 +25,7 @@
     "actions": {
       "patterns": [
         {
-          "match": "(\\{)([a-zA-Z0-9_]+|\\n|\\t)\\s+(down|up)(\\})",
+          "match": "(\\{)([\\S]+|\\n|\\t)\\s+(down|up)(\\})",
           "captures": {
             "1": { "name": "keyword.other.macro" },
             "2": { "name": "variable.parameter.macro" },
