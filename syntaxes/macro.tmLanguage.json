@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Macro",
+  "scopeName": "source.macro",
+  "patterns": [
+    {
+      "include": "#settings"
+    },
+    {
+      "include": "#actions"
+    }
+  ],
+  "repository": {
+    "settings": {
+      "patterns": [
+        {
+          "match": "\\b(delay)\\s*=\\s*(true|false)\\b",
+          "captures": {
+            "1": { "name": "keyword.other.macro" },
+            "2": { "name": "constant.language.boolean.macro" }
+          }
+        }
+      ]
+    },
+    "actions": {
+      "patterns": [
+        {
+          "match": "\\{([a-zA-Z0-9_]+|\\n|\\t)\\s+(down|up)\\}",
+          "captures": {
+            "1": { "name": "variable.parameter.macro" },
+            "2": { "name": "keyword.control.macro" }
+          }
+        },
+        {
+          "match": "\\{(delay)\\s+([0-9]+ms)\\}",
+          "captures": {
+            "1": { "name": "keyword.other.macro" },
+            "2": { "name": "constant.numeric.macro" }
+          }
+        }
+      ]
+    }
+  }
+}
